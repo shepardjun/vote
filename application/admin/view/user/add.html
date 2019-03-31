@@ -1,0 +1,100 @@
+{extend name="base/main" /}
+{block name="main"}
+<div class="layui-main">
+    <div class="layui-row">
+        <div class="layui-col-md5">
+            <form class="layui-form" action="/admin/user/save">
+                <div class="layui-word-aux" style="margin: 20px;text-align: center;font-size: larger;">添加管理员</div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">用户名</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="username" required  lay-verify="required" placeholder="请输入用户名" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">密码</label>
+                    <div class="layui-input-block">
+                        <input type="password" name="pwd" required  lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">重复密码</label>
+                    <div class="layui-input-block">
+                        <input type="password" name="pwd2" required  lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">姓名</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="realname"  placeholder="请输入姓名" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">邮箱</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="email"  placeholder="请输入邮箱" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">电话</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="phone" placeholder="请输入电话" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item layui-form-text">
+                    <label class="layui-form-label">备注</label>
+                    <div class="layui-input-block">
+                        <textarea name="memo" placeholder="请输入内容" class="layui-textarea"></textarea>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-input-block">
+                        <button class="layui-btn" lay-submit lay-filter="formSubmit">立即提交</button>
+                        <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{/block}
+
+{block name="javascript"}
+<script>
+    layui.use(['layer','jquery','form'], function() {
+        var layer = layui.layer;
+        var $ = layui.jquery;
+        var form = layui.form;
+
+        //监听提交
+        form.on('submit(formSubmit)', function(data){
+            //请求服务器入库
+            console.log(data.field)
+            $.ajax({
+                url:'/admin/user/save',
+                data:data.field,
+                type:'post',
+                dataType: "json",
+                success:function(res){
+                    //写入成功跳转到列表页
+                    console.log(res);
+
+                    if(res.code == 1){
+                        window.location.href = '/admin/user/index';
+                    }else{
+                        layer.msg(res.msg);
+                        return false;
+                    }
+                },
+                error:function(){
+                    layer.msg('保存失败');
+                    return false;
+                }
+            });
+
+            return false;
+        });
+
+    });
+</script>
+{/block}

@@ -1,0 +1,108 @@
+{extend name="base/main" /}
+{block name="main"}
+<div class="layui-main">
+   <div class="layui-row">
+        <div class="layui-col-md9">
+            <div class="layui-word-aux" style="margin: 20px;text-align: center;font-size: larger;">主题设置</div>
+            <form class="layui-form" action="">
+                <input type="hidden" name="bgColor" value="{$theme.bgColor | default='rgba(68,66,66,0.5)'}" />
+                <input type="hidden" name="fontColor" value="{$theme.fontColor | default='rgba(68,66,66,0.5)'}" />
+                <input type="hidden" name="hoverColor" value="{$theme.hoverColor | default='rgba(68,66,66,0.5)'}" />
+				<fieldset class="layui-elem-field">
+					<legend>文字</legend>
+					<div class="layui-field-box">
+						<div class="layui-form-item layui-form-text">
+							<label class="layui-form-label">颜色</label>
+							<div class="layui-input-block">
+								<div id="font-color"></div>					
+							</div>
+                        </div>
+						<div class="layui-form-item layui-form-text">
+							<label class="layui-form-label">指向时颜色</label>
+							<div class="layui-input-block">
+								<div id="font-hover-color"></div>	
+							</div>
+						</div>
+                    </div>			
+				</fieldset>
+				
+				<fieldset class="layui-elem-field">
+					<legend>背景</legend>
+					<div class="layui-field-box">
+						<div class="layui-form-item layui-form-text">
+							<label class="layui-form-label">颜色</label>
+							<div class="layui-input-block">
+								<div id="bg-color"></div>								
+							</div>
+                        </div>						
+                    </div>				
+				</fieldset>
+                <div class="layui-form-item">
+                    <div class="layui-input-block">
+                        <button class="layui-btn" lay-submit lay-filter="formSubmit">立即提交</button>
+                       
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{/block}
+{block name="javascript"}
+<script>
+    layui.use(['form','jquery','colorpicker'], function(){
+        var form = layui.form;
+        var $ = layui.jquery;
+        var colorpicker = layui.colorpicker;
+		var colorDefault = {size:'xs',predefine: true,color: 'rgba(68,66,66,0.5)',format: 'rgb',alpha: true };
+		 
+		colorpicker.render($.extend({},colorDefault,
+		{
+			elem: '#font-hover-color'
+			,color:$("input[name=hoverColor]").val()
+			,change: function(color){
+				$("input[name=hoverColor]").val(color);
+			}		
+		}));
+		colorpicker.render($.extend({},colorDefault,
+		{
+			elem: '#font-color'
+			,color:$("input[name=fontColor]").val()
+			,change: function(color){
+			  $("input[name=fontColor]").val(color);
+			}		
+		}));
+		colorpicker.render($.extend({},colorDefault,
+		{
+			elem: '#bg-color'
+			,color:$("input[name=bgColor]").val()
+			,change: function(color){
+			  $("input[name=bgColor]").val(color);
+			}		
+		}));
+		
+        //监听提交
+        form.on('submit(formSubmit)', function(data){
+            //请求服务器入库
+            $.ajax({
+                url:'/admin/theme/ajax_save_config',
+                data:data.field,
+                type:'post',
+                dataType: "json",
+                success:function(res){
+                    //写入成功跳转到列表页
+                    console.log(res);
+                    if(res.code == 0){
+                        layer.msg('保存成功');
+						window.location.href = '/admin/theme/config';
+                    }
+                },
+                error:function(){
+                    layer.msg('保存失败');
+                }
+            });
+            return false;
+        });
+    });
+</script>
+{/block}

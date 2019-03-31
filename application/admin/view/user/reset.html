@@ -1,0 +1,83 @@
+{extend name="base/main" /}
+{block name="main"}
+<div class="layui-main">
+    <div class="layui-row" style="margin-top: 30px;">
+        <div class="layui-col-md5">
+            <form class="layui-form">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">用户名</label>
+                    <label class="layui-form-label">{$user_info.login_name}</label>
+                </div>
+
+                <div class="layui-form-item">
+                    <label class="layui-form-label">新密码</label>
+                    <div class="layui-input-block">
+                        <input type="password" id="pwd" name="pwd" required  lay-verify="required"  placeholder="请输入新密码" autocomplete="off" class="layui-input">
+                        <input type="hidden" name="id" value="{$user_info.id}">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">重复新密码</label>
+                    <div class="layui-input-block">
+                        <input type="password" id="pwd2" name="pwd2"  required  lay-verify="required" placeholder="请再次输入新密码" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-input-block">
+                        <button class="layui-btn" lay-submit lay-filter="formSubmit">立即提交</button>
+                        <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{/block}
+
+{block name="javascript"}
+<script>
+    layui.use(['form','jquery','layer'], function() {
+        var form = layui.form;
+        var $ = layui.jquery;
+        var layer = layui.layer;
+
+        //监听提交
+        form.on('submit(formSubmit)', function (data) {
+            //layer.msg(JSON.stringify(data.field));
+            //请求服务器入库
+
+            var new_password = data.field.pwd;
+            var new_password2 = data.field.pwd2;
+            if(new_password != new_password2)
+            {
+                layer.msg('两次密码不一致，请重新输入！');
+                return false;
+            }
+
+            $.ajax({
+                url:'/admin/user/reset_password',
+                type:'post',
+                data:data.field,
+                dataType:'json',
+                success:function(res){
+                    //写入成功跳转到列表页
+                    console.log(res);
+
+                    if(res.code == 1){
+                        layer.msg('密码重置成功！');
+                        window.location.href = '/admin/user/index';
+                    }else{
+                        layer.msg(res.msg);
+                        return false;
+                    }
+                },
+                error:function(){
+                    layer.msg('保存失败');
+                    return false;
+                }
+            });
+            return false;
+        });
+    });
+</script>
+{/block}

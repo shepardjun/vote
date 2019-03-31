@@ -1,0 +1,33 @@
+#imgs {
+	margin: 10px 0 0 0
+}
+#imgs dd {
+	position: relative;
+	margin: 0 10px 10px 0;
+	float: left;
+	border:1px solid #000;
+}
+#imgs .operate {
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 1
+}
+#imgs .operate i {
+	cursor: pointer;
+	background: #2F4056;
+	padding: 2px;
+	line-height: 15px;
+	text-align: center;
+	color: #fff;
+	margin-left: 1px;
+	float: left;
+	filter: alpha(opacity=80);
+	-moz-opacity: .8;
+	-khtml-opacity: .8;
+	opacity: .8
+}
+#imgs dd .img {
+	max-height: 150px;
+	max-width: 500px
+}

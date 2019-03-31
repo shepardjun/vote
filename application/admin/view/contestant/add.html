@@ -1,0 +1,135 @@
+{extend name="base/main" /}
+{block name="main"}
+<div class="layui-main">
+    <div class="layui-row">
+        <div class="layui-col-md10">
+            <div class="layui-word-aux" style="margin: 20px;text-align: center;font-size: larger;">选手内容管理</div>
+            <form class="layui-form" action="" lay-filter="attend_form">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">姓名</label>
+
+                    <div class="layui-input-block">
+                        <input type="text" name="name" required lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input" value="{$contestant.name ?:''}">
+                        <input type="hidden" name="attend_id" id="attend_id" value="{$attend_id?$attend_id:''}">
+                    </div>
+                </div>
+
+                <div class="layui-form-item">
+                    <label class="layui-form-label">照片</label>
+
+                    <div class="layui-input-block">
+                        <button type="button" class="layui-btn" id="product_upload">
+                            <i class="layui-icon">&#xe67c;</i>上传图片
+                        </button>
+                    </div>
+                </div>
+
+                <input type="hidden" name="pic" value="{$pic_json_str?:''}">
+
+                <div class="layui-form-item">
+                    <label class="layui-form-label">图片展示</label>
+
+                    <div class="layui-input-block">
+                        <div class="layui-upload-list" id="imgs" data-json='{:json_encode($pic_list)}'></div>
+                    </div>
+                </div>
+
+                <div class="layui-form-item layui-form-text">
+                    <label class="layui-form-label">选手简介</label>
+
+                    <div class="layui-input-block">
+                        <textarea name="desc" placeholder="请输入内容" class="layui-textarea">{$contestant.desc?:''}</textarea>
+                    </div>
+                </div>
+
+                <div class="layui-form-item">
+                    <div class="layui-input-block">
+                        <button class="layui-btn" lay-submit lay-filter="formSubmit">立即提交</button>
+                        <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{/block}
+{block name="javascript"}
+<script>
+    layui.use (['form', 'upload', 'jquery', 'ImgList'], function () {
+        var form = layui.form;
+        var $ = layui.jquery;
+        var upload = layui.upload;
+        var ImgList = layui.ImgList;
+        var dataJson = $ ("#imgs").attr ("data-json") || "{}";
+        var imgObj = JSON.parse (dataJson) || [];
+        var temObj = [];
+        // 格式化初始值
+        if (!$.isEmptyObject (imgObj)) {
+            for (var l in imgObj) {
+                var imgId = ImgList.randomString ();
+                temObj.push ({
+                    'imgid' : imgId,
+                    'src' : imgObj[l]['url_large'],
+                    'm_img' : imgObj[l]['url_middle'],
+                    's_img' : imgObj[l]['url_small']
+                })
+            }
+            imgObj = temObj;
+            temObj = {};
+        }
+        ImgList.defineConfig ({
+            element : "#imgs",
+            hiddenDirection : $ ("[name='pic']"),
+            initData : imgObj
+        });
+        //执行实例
+        var uploadInst = upload.render ({
+            elem : '#product_upload'         //绑定元素
+            , url : '/admin/upload/upload'    //上传接口
+            , multiple : false
+            , done : function (res) {
+                console.info (res)
+                //上传完毕回调
+                if (res.code == 0) {
+                    ImgList.add (res.data, true);
+                }
+            }
+            , error : function () {
+                //请求异常回调
+                console.log ('error');
+            }
+        });
+        var id = $ ('#attend_id').val ();
+        if (id != '') {
+            //当前记录的初始值
+            form.val ("attend_form", {
+                "attend_id" : id
+                , "name" : '{$contestant.name?:""}'
+                , "desc" : '{$contestant.desc?:""}'
+            });
+        }
+        //监听提交
+        form.on ('submit(formSubmit)', function (data) {
+            //请求服务器入库
+            $.ajax ({
+                url : '/admin/contestant/save',
+                data : data.field,
+                type : 'post',
+                dataType : "json",
+                success : function (res) {
+                    if (res.code == 0) {
+                        //写入成功跳转到列表页
+                        window.location.href = '/admin/contestant/index';
+                    } else {
+                        layer.msg (res.msg);
+                    }
+                },
+                error : function () {
+                    layer.msg ('保存失败');
+                }
+            });
+            return false;
+        });
+    });
+</script>
+{/block}

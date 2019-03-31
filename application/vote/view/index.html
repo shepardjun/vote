@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>安徽广播电视台海豚成长记</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+    <script>!function (e) {
+        function t (a) {
+            if (i[a])return i[a].exports;
+            var n = i[a] = {exports : {}, id : a, loaded : !1};
+            return e[a].call (n.exports, n, n.exports, t), n.loaded = !0, n.exports
+        }
+
+        var i = {};
+        return t.m = e, t.c = i, t.p = "", t (0)
+    } ([function (e, t) {
+        "use strict";
+        Object.defineProperty (t, "__esModule", {value : !0});
+        var i = window;
+        t["default"] = i.flex = function (normal, e, t) {
+            var a = e || 100, n = t || 1, r = i.document, o = navigator.userAgent, d = o.match (/Android[\S\s]+AppleWebkit\/(\d{3})/i), l = o.match (/U3\/((\d+|\.){5,})/i), c = l && parseInt (l[1].split (".").join (""), 10) >= 80, p = navigator.appVersion.match (/(iphone|ipad|ipod)/gi), s = i.devicePixelRatio || 1;
+            p || d && d[1] > 534 || c || (s = 1);
+            var u = normal ? 1 : 1 / s, m = r.querySelector ('meta[name="viewport"]');
+            m || (m = r.createElement ("meta"), m.setAttribute ("name", "viewport"), r.head.appendChild (m)), m.setAttribute ("content", "width=device-width,user-scalable=no,initial-scale=" + u + ",maximum-scale=" + u + ",minimum-scale=" + u), r.documentElement.style.fontSize = normal ? "50px" : a / 2 * s * n + "px"
+        }, e.exports = t["default"]
+    }]);
+    flex (false, 100, 1);</script>
+    <link rel="stylesheet" href="{$wp_css}/public.css"/>
+    <link rel="stylesheet" href="{$w_css}/vote/vote.css"/>
+</head>
+
+<body>
+
+<!--公共头部-->
+<section class="public-section bg-ff" id="PublicSection">
+    <header>
+        <div class="theme-title">
+            <img class="theme-title-img" src="{$w_img}/vote/head-title.png"/>
+        </div>
+        <div class="video-div">
+            <iframe class="video-controls" src='http://player.youku.com/embed/XNDExMTUwMjU1Ng=='></iframe>
+        </div>
+    </header>
+
+    <nav>
+        <div class="nave1">
+            <div class="nave-btn fc-5d fz-30 PageBtn " data-type="1">明日之星
+                <img class="nave-btn-icon " src="{$w_img}/vote/tab-btn-icon.png">
+            </div>
+            <div class="nave-btn fc-5d fz-30 PageBtn" data-type="2">人气奖项
+                <img class="nave-btn-icon" src="{$w_img}/vote/tab-btn-icon.png">
+            </div>
+            <div class="nave-btn fc-5d fz-30 PageBtn active" data-type="3">明星风采
+                <img class="nave-btn-icon active" src="{$w_img}/vote/tab-btn-icon.png">
+            </div>
+        </div>
+
+        <div class="nave-tip fz-28 NavShowStatus">
+            <div class="nave-tip-div" id="NaveTipDiv">
+                <div class="nave-tip-l">
+                    <div>明日之星少儿才艺大赛人气评选</div>
+                    <div class="fz-20">参赛人数<span class="nave-tip-num fc-23">{$sum['count']}</span> 累计人气数
+                        <span class="nave-tip-num fc-23">{$sum['hot']}</span></div>
+                </div>
+                <div class="nave-tip-c" id="SubCodeBtn"><a class="sub-btn" href="javascript:void(0);">关注</a></div>
+                <div class="nave-tip-r">
+                    <div class="nave-search">
+                        <img class="nave-search-icon" id="SearchIcon" src="{$w_img}/vote/search-icon.png"/></div>
+                </div>
+            </div>
+            <div class="nave-search-div" id="NaveSearchDiv" style="display: none;">
+                <input class="search-inpt" id="SearchInt" value=""/><img id="SearchBtn" class="nave-search-icon2" src="{$w_img}/vote/search-icon.png"/>
+            </div>
+        </div>
+
+        <div class="timeout-div bg-f8 NavShowStatus">
+            <div class="time-title fz-24 fc-92">活动结束倒计时</div>
+            <div class="time-content">
+                <div class="time-span fz-24 TimeSpan">0天</div>
+                <div class="time-span fz-24 TimeSpan">0时</div>
+                <div class="time-span fz-24 TimeSpan">0分</div>
+                <div class="time-span fz-24 TimeSpan">0秒</div>
+            </div>
+        </div>
+
+        <div class="nave2 NavShowStatus">
+            <div class="nave-btn fc-5d fz-28 ContentBtn active" data-type="1">参赛选手</div>
+            <div class="nave-btn fc-5d fz-28 ContentBtn" data-type="2">人气排名</div>
+            <div class="nave-btn fc-5d fz-28 ContentBtn" data-type="3">助力规则</div>
+        </div>
+    </nav>
+</section>
+
+<!--明日之星-->
+<section class="star-section bg-ff" id="StarSection" style="display: none">
+    <div class="content">
+        <div class="contents">
+            <img class="timg-img" src="{$w_img}/vote/timg.gif"/>
+
+            <div class="content1-div bg-f6">
+                <div class="content1-div-div bg-ff">
+                    <div class="con1-center fc-4f fz-30">那里是海上丝绸之路的延伸</div>
+                    <div class="con1-center fc-4f fz-30">那里有古老的毛利族神话</div>
+                    <div class="con1-center fc-4f fz-30">那里有最具地域特色的火山地热奇观</div>
+                    <div class="con1-center fc-4f fz-30">那里有纯净的碧海蓝天</div>
+                    <div class="con1-center fc-4f fz-30">那里有海豚的乐园</div>
+                    <div class="con1-center fc-4f fz-30">让我们聆听孩子们的心声</div>
+                    <div class="con1-center fc-f9 fz-44">海豚成长记才艺大赛</div>
+                    <div class="con1-center fc-f9 fz-44">开始报名啦！</div>
+                    <pre class="con1-center fc-f1 fz-35">招募成员：6-12周岁 10名 素人萌</pre>
+                    <pre class="fz-30">
+节目定位：中国首档少儿旅行综艺
+播出平台：安徽卫视、爱奇艺、腾讯、搜狐
+播出期数：季播12集
+拍摄周期：18-20天
+拍摄地点：新西兰</pre>
+                </div>
+            </div>
+            <div class="star-line-div"><img class="star-line-img" src="{$w_img}/vote/star-line.png"/></div>
+            <div class="content2-div bg-dc">
+                <div class="content2-div-div">
+                    <div class="content2-title fc-4f fz-36">比赛时间</div>
+                    <div class="content2-con">
+                        <div class="content-y-line"></div>
+                        <div class="content2-con-line">
+                            <div class="line-icon bg-f9"></div>
+                            <span class="fz-28">2019-2月招募海选</span>
+                        </div>
+                        <div class="content2-con-line mtp-150">
+                            <div class="line-icon bg-95"></div>
+                            <span class="fz-28">2019-5月安徽电视台表演培训选拔</span>
+                        </div>
+                        <div class="content2-con-line mtp-150">
+                            <div class="line-icon bg-42"></div>
+                            <span class="fz-28">2019-7月启程前往拍摄地新西兰</span>
+                        </div>
+                        <div class="content2-con-line mtp-150">
+                            <div class="line-icon bg-53"></div>
+                            <span class="fz-28">2019-10月—12月节目播出</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content3-div">
+                <div class="content3-head">
+                    <img class="content3-head-img" src="{$w_img}/vote/star-origion.png"/>
+
+                    <div class="content3-head-title fz-30">本次大赛举办初衷</div>
+                </div>
+                <div class="content3-content-div">
+<pre class="fc-70 fz-28">
+    为少儿提供一个视角和方式去拓展业余生活，为少儿搭建一个展示自我、锻炼自我、提高自我的一个平台,让孩子们自觉自愿走出屏幕的框框去看世界。
+
+    孩子们在新西兰的旅程中不只是一个游客，更是文化交流小大使，把我们的文化跟新西兰的孩子分享。
+
+    个性迥异的萌娃们在完成任务的过程中，学会彼此配合，集思广益，发散思维，每完成一个任务都会牵出一个小故事，两国孩子们之间的互动更是惊喜不断！
+</pre>
+                </div>
+            </div>
+            <div class="content4-div">
+                <div class="content4-head">
+                    <div class="content4-head-title fc-ff fz-40 bg-ee">开设课程</div>
+                    <div class="content4-head-fish"><img class="content4-fish-img" src="{$w_img}/vote/star-fish.png"/>
+                    </div>
+                </div>
+                <div class="content4-content bg-ba">
+                    <div class="content4-content-line fz-35">1、基础训练课才艺指导课</div>
+                    <div class="content4-content-line fz-35">2、模拟拍摄课，心理辅导课</div>
+                    <div class="content4-content-line fz-35">3、基础训练课，表演课</div>
+                    <div class="content4-content-line fz-35">4、名主持面对面表演课</div>
+                </div>
+            </div>
+            <div class="content5-div">
+                <div class="content5-head">
+                    <div class="content5-head-title fc-ff fz-36">团队介绍</div>
+                    <div class="content5-head-div"><img class="content5-head-img" src="{$w_img}/vote/star-con5-bg.png"/>
+                    </div>
+                </div>
+                <div class="content5-content">
+                    <div class="team-photo"><img src="{$w_img}/vote/star-team-photo1.png"></div>
+                    <div class="team-photo-con">
+                        <div class="fw-b fz-30">著名香港导演：黄建勋</div>
+                        <div class="fz-24">香港资深导演，曾执导郑少秋版《楚留香》 梁朝伟版《绝代双骄》《陆小凤》港版《聊斋》《西游记》《封神榜》等。</div>
+                    </div>
+                    <div class="team-photo-line"></div>
+                    <div class="team-photo"><img src="{$w_img}/vote/star-team-photo2.png"></div>
+                    <div class="team-photo-con">
+                        <div class="fw-b fz-30">著名经纪人：吴崇文</div>
+                        <div class="fz-24">英皇娱乐集团 艺人经纪部总监；大地唱片 演出部经理</div>
+                    </div>
+                </div>
+            </div>
+            <div class="content6-div">
+                <div class="content6-head bg-2b fc-ff fz-35 fw-b">培训现场</div>
+            </div>
+            <div class="content7-div">
+                <img class="" src="{$w_img}/vote/star-place1.png"/>
+                <img class="" src="{$w_img}/vote/star-place2.png"/>
+                <img class="" src="{$w_img}/vote/star-place3.png"/>
+                <img class="" src="{$w_img}/vote/star-place4.png"/>
+            </div>
+            <div class="star-line-div"><img class="star-line-img" src="{$w_img}/vote/star-line.png"/></div>
+            <div class="content8-div">
+                <div class="content8-head fc-3c fz-35 fw-b">更多详情</div>
+                <div class="content8-tip fc-92 fz-24">关注我们参与更多活动</div>
+                <div class="content8-code"><img src="{$w_img}/vote/star-code.jpg"/></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--人气奖项-->
+<section class="prize-section bg-ff" id="PrizeSection" style="display: none">
+    <div class="prize-page-img"><img src="{$w_img}/vote/prize.gif"/></div>
+    <!--<div class="prize-tree"><img src="{$w_img}/vote/prize-tree.png" /></div>
+    <div class="rule-title">
+        <div class="rule-title-con">
+            <img class="rule-title-img" src="{$w_img}/vote/rule-title-bg.png" />
+            <div class="rule-title-word fz-30">助力规则</div>
+        </div>
+    </div>
+    <div class="rule-desc fz-24">
+		<pre>
+1、进入海豚成长记才艺大赛直播间的人气专区或者直播页面的“人气助力”专栏，了解小选手的个人信息，点击“为TA助力”；
+2、每人每天可对任一选手赠送一1朵鲜花，1朵鲜花代表1人气值；
+3、每个参与者还可为自己喜欢的选手送道具，选择道具即兑换相应的票数，礼物分为三类：
+A，	权杖，10币/个=58人气；
+B，	钻石，30币/个=198人气；
+C，	皇冠，90币/个=668人气；
+	注：道具选择不限次数与个数；
+请认真核对选择道具的种类、数量、金额，指令一旦发出，即产生相应的人气值，因网络交易的及时性，立即生效，不可撤销，不予退还。</pre></div>
+    <div class="prize-fish"><img src="{$w_img}/vote/timg.gif" /></div>
+    <div class="rule-title">
+        <div class="rule-title-con">
+            <img class="rule-title-img" src="{$w_img}/vote/rule-title-bg.png" />
+            <div class="rule-title-word fz-30">注意事项</div>
+        </div>
+    </div>
+    <div class="rule-desc fz-24">
+		<pre>
+1、本次大赛所有奖励均不能折现，转让；获奖者奖励在赛后由专人对接领取，如因个人因素导致无法领取奖励，视为弃权，主办方有权将奖励进行合理处置。
+2、本次“海豚成长记才艺大赛”选手本着自愿参与的原则，提供一个相对公平的评选环境，有免费投票与打赏礼物总换票数的方式，打赏虚拟礼物是为了让更多喜爱选手的人更多的鼓励选手，通过虚拟礼物方式兑换成人气值，帮助人气选手。不建议选手过度参与，更希望大家扩散与传播。同时也规避部分通过第三方恶意刷票的方式来获得排名。
+3、微信规定单笔支付限额3000元，请大家合理安排。如果您对网络线上的打赏礼物形式有异议，建议您通过免费拉票的方式鼓励选手，参与第一，大赛主要是给小朋友一个展示舞台，不要过度拼票。
+4、成功赠送礼物后系统将生成对应的票数，无法退回，请投票者慎重投票，建议核对好帐号信息再操作。
+5、严禁违反规则恶意刷票，一经发现将立即取消其选手人气评选资格。
+6、因不可抗因素造成网络人气评选被动停止的，以网络人气评选停止时间的人气值为准。
+7、本活动最终解释权为海豚成长记才艺大赛组委会所有。</pre></div>-->
+</section>
+
+<!--参赛选手列表-->
+<section class="attend-list-section" id="AttendListSection">
+    <div class="attend-list" id="AttendListContainer"></div>
+    <div class="attend-list-tpl" id="AttendListTpl" style="display: none">
+        <div class="attend-item">
+            <div class="item-div ShowAttendInfo" data-id="{{id}}">
+                <img class="item-img" src="{{pic}}" onload="$tools.scalingImg(this)"/>
+            </div>
+            <div class="item-info">
+                <span class="item-info-l fz-24">{{name}} {{id}}号</span><span class="item-info-r fz-20">人气：<span class="AttendHot{{id}}">{{hot}}<span></span>
+            </div>
+            <div class="item-btn">
+                <a class="item-vote-btn fc-ff fz-20 VoteAttendBtn" href="javascript:void(0);" data-id="{{id}}">为TA投票</a>
+            </div>
+        </div>
+    </div>
+    <div class="attend-list-loading fc-5d fz-30" id="AttendListLoading" style="display: none;">~加载数据中。。。</div>
+    <div class="attend-list-none fc-5d fz-30" id="AttendListNone" style="display: none;">~暂无更多数据~</div>
+</section>
+
+<!--参赛选手排名-->
+<section class="attend-order-section bg-ff" id="AttendOrderSection" style="display: none;">
+    <div class="attend-order fz-28" id="OrderListContainer">
+        <div class="attend-order-first" id="OrderListFirstContainer"></div>
+        <div class="attend-order-other" id="OrderListOtherContainer"></div>
+    </div>
+    <div class="attend-order-first-tpl" id="AttendOrderFirstTpl" style="display: none">
+        <div class="first-line">
+            <div class="order-bg">
+                <img class="order-head" src="{{pic}}">
+                <img class="order-img-bg" src="{$w_img}/vote/order-num{{order}}.png">
+            </div>
+            <div class="order-name">{{name}}({{id}})</div>
+            <div class="order-hot fc-45">人气{{hot}}</div>
+        </div>
+    </div>
+    <div class="attend-order-other-tpl" id="AttendOrderOtherTpl" style="display: none">
+        <div class="attend-order-other-line">
+            <div class="head"><img class="order-head" src="{{pic}}"></div>
+            <div class="num"><span class="fc-45">{{order}}</span></div>
+            <div class="name"><span>{{name}}({{id}})</span></div>
+            <div class="hot"><span class="fc-45">{{hot}}</span></div>
+        </div>
+    </div>
+    <div class="attend-order-loading fc-5d fz-30" id="OrderListLoading" style="display: none;">~加载数据中。。。</div>
+    <div class="attend-order-none fc-5d fz-30" id="OrderListNone" style="display: none;">~暂无更多数据~</div>
+</section>
+
+<!--选手详情-->
+<section class="attend-info-section" id="AttendInfoSection" style="display: none;">
+    <div class="attend-info" id="AttendInfoContainer"></div>
+    <div class="attend-info-tpl" id="AttendInfoTpl" style="display: none">
+        <div class="info-head">
+            <div class="info-item1 fz-24"><img class="info-item-icon" src="{$w_img}/vote/attend-info-icon1.png"/><span>{{id}}号</span>
+            </div>
+            <div class="info-item2 fz-24"><img class="info-item-icon" src="{$w_img}/vote/attend-info-icon2.png"/><span>{{hot}}人气</span>
+            </div>
+            <div class="info-item1 fz-24"><img class="info-item-icon" src="{$w_img}/vote/attend-info-icon3.png"/><span>{{order}}</span>
+            </div>
+        </div>
+        <div class="info-content bg-ff">
+            <div class="info-content-con">
+                <div class="content-photo"><img class="content-photo-img" src="{{pic}}" onload="$tools.scalingImg(this)"></div>
+                <div class="content-desc-head">
+                    <img class="content-desc-head-img" src="{$w_img}/vote/attend-info-desc.png"></div>
+                <div class="content-desc bg-fc">
+                    <pre class="fz-24">{{desc}}</pre>
+                </div>
+                <div class="content-btn-div">
+                    <div class="content-btn fc-ff fz-36 bg-9f VoteAttendBtn" data-id="{{id}}">为TA助力</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--助力规则-->
+<section class="attend-rule-section bg-ff" id="AttendRuleSection" style="display: none;">
+    <div class="rule-title">
+        <div class="rule-title-con">
+            <img class="rule-title-img" src="{$w_img}/vote/rule-title-bg.png"/>
+
+            <div class="rule-title-word fz-30">助力规则</div>
+        </div>
+    </div>
+    <div class="rule-desc fz-24">
+		<pre>
+1、进入海豚成长记才艺大赛直播间的人气专区或者直播页面的“人气助力”专栏，了解小选手的个人信息，点击“为TA助力”；
+2、每人每天可对任一选手赠送一1朵鲜花，1朵鲜花代表1人气值；
+3、每个参与者还可为自己喜欢的选手送道具，选择道具即兑换相应的票数，礼物分为三类：
+A，	权杖，10币/个=58人气；
+B，	钻石，30币/个=198人气；
+C，	皇冠，90币/个=668人气；
+	注：道具选择不限次数与个数；
+请认真核对选择道具的种类、数量、金额，指令一旦发出，即产生相应的人气值，因网络交易的及时性，立即生效，不可撤销，不予退还。</pre>
+    </div>
+    <div class="rule-bg"><img class="rule-bg-img" src="{$w_img}/vote/rule-bottom-bg.png"/></div>
+</section>
+
+<!--赠送礼物弹层-->
+<section class="gift-section" id="GiftSection" style="display: none;">
+    <div class="gift-layer">
+        <div class="gift-list">
+            {volist name="gift" id="data"}
+            <div class="gift-list-line">
+                <div class="gift-icon">
+                    <img class="gift-icon-img" src="{$data.pic}"/>
+                    <!--<div class="gift-pay fc-ff fz-24 {$data.scores ? 'bg-e7' : 'bg-95'}">{$data.scores ? '付费' : '免费'}</div>-->
+                </div>
+                <div class="gift-name fz-32"><span class="span1 fc-ff">{$data.name}</span></div>
+                <div class="gift-hot fz-22"><span class="span2 fc-ff">{$data.desc}</span></div>
+                <div class="gift-check">
+                    <label class="gift-radios-label bui-radios-anim">
+                        <input type="radio" name="gift" class="GiftIpt" value="{$data.id}" data-hot="{$data.hot}"><i class="gift-radios"></i>
+                    </label>
+                </div>
+            </div>
+            {/volist}
+        </div>
+        <div class="gift-send">
+            <div class="gift-send-btn fc-ff fz-36 bg-9f" id="SendGiftBtn">投票</div>
+        </div>
+    </div>
+</section>
+
+<!--初始化页面加载-->
+<section class="loading-section" id="LoadingSection" style="display: none;">
+    <div class="loading_2">
+        <div><span></span></div>
+        <div><span></span></div>
+        <div><span></span></div>
+        <div><span></span></div>
+    </div>
+</section>
+
+<!--关注二维码-->
+<section class="sub-code-section bg-ff" id="SubCodeSection" style="display: none;">
+    <div class="sub-code-div">
+        <div class="border-code-div">
+            <div class="code-word fz-32">长按，识别图中二维码进行关注</div>
+            <div class="code-word-img"><img src="{$w_img}/vote/star-code.jpg"/></div>
+        </div>
+    </div>
+</section>
+
+<script type="text/javascript" src="{$wp_js}/jquery.js"></script>
+<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
+<script>
+    var GV = {
+        share_conf : {
+            account : {$share['account']},
+            share : {$share['share']}
+        }
+    }
+</script>
+<script type="text/javascript" src="{$wp_js}/jq.template.js"></script>
+<script type="text/javascript" src="{$wp_js}/jq.wxShare.js"></script>
+<script type="text/javascript" src="{$w_js}/vote/vote.js"></script>
+</body>
+</html>

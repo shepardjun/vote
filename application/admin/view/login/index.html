@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>活动管理系统</title>
+    <link rel="stylesheet" href="/static/layui/css/layui.css" media="all">
+	<link rel="stylesheet" href="/static/layui/css/diy.css" media="all">
+</head>
+<style>
+    .layui-form-item img{
+        float: left;
+        width: 100px;
+        margin: 8px;
+    }
+</style>
+<body class="layui-layout-body">
+
+{php}
+$controller= strtolower($request->controller());
+$action=strtolower($request->action());
+{/php}
+<div class="layui-layout layui-layout-admin">
+
+    <div class="layui-body" style="width: 500px;margin-left: 200px;">
+        <!-- 内容主体区域 -->
+        {block name="main"}
+        <!-- 内容主体区域 -->
+        <div style="padding: 15px;">
+            <h1 style="width: 450px;text-align: center;">管理平台</h1>
+            <br><br>
+            <h3 style="width: 450px;text-align: center;height: 30px;padding: 10px;" class="layui-bg-gray">管理员登录</h3>
+
+            <blockquote class="layui-elem-quote layui-quote-nm" style="border-left-width: 1px;">
+                <form class="layui-form">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">帐号</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="login_name" placeholder="请输入帐号" required  lay-verify="required" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <hr class="layui-bg-green">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">密码</label>
+                        <div class="layui-input-block">
+                            <input type="password" name="pwd" required  lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <!--<hr class="layui-bg-green">-->
+                    <!--<div class="layui-form-item">-->
+                        <!--<label class="layui-form-label">验证码</label>-->
+                        <!--<div class="layui-input-block">-->
+                            <!--<input type="text" name="validate_code" placeholder="验证码" required  lay-verify="required" autocomplete="off" class="layui-input" style="width: 150px;float: left">-->
+                            <!--<img id="captcha" src="{:captcha_src()}" onclick="javascript:this.src='{:captcha_src()}?rand='+Math.random()" >-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <hr class="layui-bg-green">
+                    <div class="layui-form-item">
+                        <div class="layui-input-block">
+                            <button class="layui-btn" lay-submit lay-filter="loginForm">登录</button>
+                            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                        </div>
+                    </div>
+                </form>
+            </blockquote>
+        </div>
+        {/block}
+    </div>
+
+</div>
+<script src="/static/layui/layui.js"></script>
+
+{block name="javascript"}
+<script>
+    layui.use(['element','jquery','form','layer'],function(){
+        var element = layui.element;
+        var $ = layui.jquery;
+        var form = layui.form;
+        var layer = layui.layer;
+
+        //监听提交
+        form.on('submit(loginForm)', function (data) {
+
+//            if(!data.field.login_name || !data.field.pwd || !data.field.validate_code)
+//            {
+//                layer.msg('帐号，密码，验证码都是必填项');
+//            }
+            if(!data.field.login_name || !data.field.pwd)
+            {
+                layer.msg('帐号，密码是必填项');
+            }
+            $.ajax({
+                url:'/admin/login/login_do',
+                data:data.field,
+                type:'post',
+                dataType: "json",
+                success:function(res){
+                    //写入成功跳转到列表页
+                    console.log(res);
+
+                    if(res.code == 0){
+//                        $("#captcha").attr('src','{:captcha_src()}?rand='+Math.random());
+                        window.location.href = '/admin/index/index';
+                    }else{
+                        layer.msg(res.msg);
+                        return false;
+                    }
+                },
+                error:function(){
+                    layer.msg('error');
+                    return false;
+                }
+            });
+
+//            console.log($("#captcha").attr('src'));
+           // reload_captcha();
+
+            return false;
+        });
+
+    });
+</script>
+{/block}
+</body>
+</html>

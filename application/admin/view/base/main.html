@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>活动管理系统</title>
+    <link rel="stylesheet" href="/static/layui/css/layui.css" media="all">
+	<link rel="stylesheet" href="/static/layui/css/diy.css" media="all">
+</head>
+<style>
+    .layui-nav-child dd{
+        margin-left: 30px;
+    }
+</style>
+<body class="layui-layout-body">
+
+{php}
+$controller= strtolower($request->controller());
+$action=strtolower($request->action());
+{/php}
+<div class="layui-layout layui-layout-admin">
+    <div class="layui-header">
+        <div class="layui-logo">活动控制台</div>
+        <!-- 头部区域（可配合layui已有的水平导航） -->
+        <ul class="layui-nav layui-layout-left">
+            <!--<li class="layui-nav-item"><a href="/admin/user/index"><i class="layui-icon layui-icon-user"></i> 管理员管理</a></li>-->
+        </ul>
+        <ul class="layui-nav layui-layout-right">
+            <li class="layui-nav-item">
+                <a href="javascript:;"><i class="layui-icon layui-icon-username"></i>
+                    {php}
+                    echo $administrator->real_name;
+                    {/php}
+                </a>
+                <dl class="layui-nav-child">
+                    <dd><a href="/admin/user/security">安全设置</a></dd>
+                </dl>
+            </li>
+            <li class="layui-nav-item"><a href="/admin/login/logout">退了</a></li>
+        </ul>
+    </div>
+
+    <div class="layui-side layui-bg-black">
+        <div class="layui-side-scroll">
+            <img src="/static/images/web/admin/admin.png" width="80%" style="margin-bottom: 30px;"/>
+            <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+            <ul class="layui-nav layui-nav-tree"  lay-filter="test">
+                <li class="layui-nav-item
+                {php}
+                if($controller=='contestant')
+                    {
+                        echo 'layui-nav-itemed';
+                    }
+                {/php}
+                ">
+                    <a class="" href="/admin/contestant/index"><i class="layui-icon layui-icon-component"></i>&nbsp;&nbsp;参赛选手管理</a>
+                </li>
+                <li class="layui-nav-item
+                {php}
+                if($controller=='popularity')
+                    {
+                        echo 'layui-nav-itemed';
+                    }
+                {/php}
+
+                ">
+                    <a href="/admin/popularity/index"><i class="layui-icon layui-icon-read"></i>&nbsp;&nbsp;人气列表</a>
+                </li>
+                <li class="layui-nav-item
+                {php}
+                if($controller=='payment')
+                    {
+                        echo 'layui-nav-itemed';
+                    }
+                {/php}
+                ">
+                    <a class="" href="/admin/payment/index"><i class="layui-icon layui-icon-component"></i>&nbsp;&nbsp;支付记录</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="layui-body">
+        <!-- 内容主体区域 -->
+        {block name="main"}
+        <!-- 内容主体区域 -->
+        <div style="padding: 15px;">
+            <h1>管理控制台</h1>
+            <br><br>
+            <blockquote class="layui-elem-quote">
+                版本：<span class="layui-badge">v.1.0</span>
+            </blockquote>
+            <br>
+            <h3>研发团队</h3>
+            <blockquote class="layui-elem-quote layui-quote-nm">
+                项目负责人：<span class="layui-badge layui-bg-green">Beel</span>
+                <br>
+                <hr class="layui-bg-orange">
+                <br>
+                后端研发：<span class="layui-badge layui-bg-blue">绿竹</span>
+                <br>
+                <hr class="layui-bg-orange">
+                <br>
+                前端研发：<span class="layui-badge ">苍鼠</span>
+                <br>
+                <hr class="layui-bg-orange">
+                <br>
+                页面设计：<span class="layui-badge layui-bg-gray">蓝天</span>
+                <br>
+            </blockquote>
+            <br>
+            <h3>系统环境</h3>
+            <blockquote class="layui-elem-quote layui-quote-nm">
+                操作系统：<span class="layui-badge layui-bg-green">linux系统 CentOS 7.0以上</span>
+                <br>
+                <hr class="layui-bg-orange">
+                <br>
+                WEB服务：<span class="layui-badge layui-bg-blue">nginx 1.13以上</span>
+                <br>
+                <hr class="layui-bg-orange">
+                <br>
+                应用程序：<span class="layui-badge ">CGI PHP-FPM，PHP5.4以上</span>
+                <br>
+                <hr class="layui-bg-orange">
+                <br>
+                数据库：<span class="layui-badge  layui-bg-gray">MYSQL5.5以上版本</span>
+                <br>
+            </blockquote>
+
+        </div>
+        {/block}
+    </div>
+</div>
+<!-- 配置文件 -->
+<script src="/static/layui/layui.js"></script>
+<script>
+    layui.config({
+        base:'/static/modules_diy/'
+    }).extend({
+        ImgList:"ImgList"
+    });
+    layui.use('element',function(){
+        var element = layui.element;
+    });
+</script>
+{block name="javascript"}
+
+{/block}
+</body>
+</html>

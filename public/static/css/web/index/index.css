@@ -1,0 +1,23 @@
+
+/*手机*/
+@media screen and (max-width: 767px){
+	.layui-form-item .layui-input-inline{margin-left:4px;margin-right:0;width:60%;display:inline-block;}
+	.score h4{font-size:35px;padding-bottom:10px;}	
+	.layui-carousel .layui-carousel-arrow{display:none;}
+	#news-category{text-align:left;margin-top:10px;margin-bottom:20px;}
+	#news-category li{display:inline-block;}
+	.news-list{padding-top:0}
+	.layui-tab-title li{min-width:30px;}
+	.card-shadow .img{height:113px;}	
+}
+
+/*ipad 以上*/
+@media screen and (min-width: 768px){	
+	.score{margin-top:0;padding-top:0}
+	.score-item{padding-bottom: 10px;padding-top: 20px;}
+}
+
+/*笔记本以上*/
+@media screen and (min-width: 993px){
+	
+}

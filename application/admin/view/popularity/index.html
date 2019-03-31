@@ -1,0 +1,37 @@
+{extend name="base/main" /}
+{block name="main"}
+<div class="layui-main">
+    <div class="layui-word-aux" style="margin: 20px;text-align: center;font-size: larger;">人气列表</div>
+    <div class="layui-row" style="margin-top: 20px;">
+        <div class="layui-col-xs9" id="product_search">
+
+        </div>
+    </div>
+    <div class="layui-row">
+        <table id="contestantlist" lay-filter="test"></table>
+    </div>
+
+</div>
+
+{/block}
+{block name="javascript"}
+<script>
+    layui.use (['table', 'jquery'], function () {
+        var table = layui.table;
+        //第一个实例
+        table.render ({
+            elem : '#contestantlist'
+            , height : 500
+            , url : '/admin/popularity/popularity_list/' //数据接口
+            , page : true //开启分页
+            , cols : [[ //表头
+                {field : 'order', title : '排名', width : 150, sort : true, fixed : 'left'}
+                , {field : 'name', title : '姓名', width : 250}
+                , {field : 'id', title : '编号', width : 150}
+                , {field : 'hot', title : '票数', sort : true}
+            ]]
+            , id : 'testReload'
+        });
+    });
+</script>
+{/block}

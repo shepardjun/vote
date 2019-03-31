@@ -1,0 +1,39 @@
+{extend name="base/main" /}
+{block name="main"}
+<div class="layui-main">
+    <div class="layui-word-aux" style="margin: 20px;text-align: center;font-size: larger;">支付记录</div>
+    <div class="layui-row" style="margin-top: 20px;">
+        <div class="layui-col-xs9" id="product_search">
+
+        </div>
+    </div>
+    <div class="layui-row">
+        <table id="paymentlist" lay-filter="test"></table>
+    </div>
+
+</div>
+
+{/block}
+{block name="javascript"}
+<script>
+    layui.use (['table', 'jquery'], function () {
+        var table = layui.table;
+        //第一个实例
+        table.render ({
+            elem : '#paymentlist'
+            , height : 500
+            , url : '/admin/payment/payment_list' //数据接口
+            , page : true //开启分页
+            , cols : [[ //表头
+                {field : 'id', title : 'ID', width : 70, sort : true, fixed : 'left'}
+                , {field : 'fans_name', title : '用户名', width : 160}
+                , {field : 'gift_price', title : '币数', width : 150}
+                , {field : 'attend_id', title : '助力选手编号', width : 150}
+                , {field : 'attend_name', title : '助力选手姓名', width : 150}
+                , {field : 'pay_status', title : '支付状态', sort : true}
+            ]]
+            , id : 'testReload'
+        });
+    });
+</script>
+{/block}

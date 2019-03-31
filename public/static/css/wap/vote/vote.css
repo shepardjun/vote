@@ -1,0 +1,220 @@
+/*公共头部区块样式*/
+.public-section{display: flex;width: 100%;box-orient:vertical;flex-direction:column;}
+.public-section header{width:100%;height:5rem;}
+.public-section header .theme-title{display:flex;justify-content:center;width:100%;height:1.06rem;}
+.public-section header .theme-title-img{width:7.2rem;height:1.06rem;display:block;margin: 0 auto;}
+.public-section header .video-div{display:flex;justify-content:center;width:100%;height:3.98rem;}
+.public-section header .video-controls{width:7.5rem;height:3.98rem;}
+
+.public-section nav{width:100%;z-index: 10;}
+.public-section nav .nave1{display:flex;width:100%;height: 1.4rem;justify-content:space-around;position: relative;}
+.public-section nav .timeout-div{display:flex;width:100%;height: 1.4rem;justify-content:center;flex-wrap: wrap;}
+.public-section nav .timeout-div .time-title{width: 100%;height: 0.6rem;line-height:0.6rem;text-align: center;}
+.public-section nav .timeout-div .time-content{display:flex;justify-content:space-around;width: 60%;height: 0.8rem;line-height:0.8rem;}
+.public-section nav .timeout-div .time-span{padding:0 0.1rem 0 0.1rem;border:solid 1px #5d5d5d;border-radius: 0.1rem;height: 0.6rem;line-height: 0.6rem;}
+.public-section nav .nave1 .nave-btn{width:1.78rem;height:100%;line-height:1.2rem;text-align:center;font-weight: bold;}
+.public-section nav .nave1 .nave-btn-icon{width:1.78rem;height:0.24rem;visibility: hidden;position: relative;margin-top: -0.25rem;}
+.public-section nav .nave1 .active{color:#45b6fe; visibility: visible;}
+
+.public-section nav .nave-tip{display: flex;justify-content:center;width:100%;height: 1.32rem;border-bottom: solid 1px #ececec;border-top: solid 1px #ececec;overflow: hidden;}
+.public-section nav .nave-tip-div{display: flex;justify-content: center; width: 100%;height: 100%;}
+.public-section nav .nave-search{display: flex;align-self:flex-end;justify-content: center; width: 0.6rem;height: 0.6rem;border:solid 1px #d4d4d4; border-radius: 0.1rem;}
+.public-section nav .nave-search-div{display: flex;justify-content: center; width: 7.5rem;height: 100%;position: relative;}
+.public-section nav .nave-tip-l{display:flex;flex-direction: column;width:65%;height: 1rem;line-height: 0.5rem;margin-top: 0.11rem;}
+.public-section nav .nave-tip-num{margin-left: 0.15rem;margin-right: 0.15rem}
+.public-section nav .nave-tip-c{display:flex;justify-content:center;align-content:center;width:15%;height: 1.32rem;line-height: 0.6rem;}
+.public-section nav .nave-tip-c .sub-btn{ height: 0.6rem; width: 1rem;line-height: 0.6rem;text-align:center;display:block;border: solid 1px #d4d4d4;border-radius: 5px;margin-top: 0.45rem;}
+.public-section nav .nave-tip-c .sub-btn:hover{background: #45b6fe;color: #ffffff;}
+.public-section nav .nave-tip-r{display:flex;justify-content:center;width:16%;height: 81%;}
+.public-section nav .search-inpt{display:flex;align-self:center;width:90%;height: 0.8rem;border: solid 2px #45b6fe;border-radius: 0.5rem;text-indent: 0.5rem;font-size: 0.4rem;color: #929292;}
+.public-section nav .nave-search-icon{display:flex;align-self:center;width:0.46rem;height:0.46rem;display: block;}
+.public-section nav .nave-search-icon2{width:0.6rem;height:0.6rem;display: block;position: absolute;right:0.5rem;top:0.35rem;}
+
+.public-section nav .nave2{display:flex;width:100%;height: 1.22rem;justify-content:space-around;position: relative;}
+.public-section nav .nave2 .nave-btn{display:flex;align-self:center;justify-content:center;width:2.06rem;height:0.76rem;line-height:0.76rem;font-weight: bold; border-radius: 5px;border: solid 1px #d4d4d4;overflow: hidden;}
+.public-section nav .nave2 .active{color: #ffffff;border: solid 1px #45b6fe;background: #45b6fe;}
+
+/*明日之星样式*/
+.star-section{display: flex;width: 100%;mine-height: 5rem;box-orient:vertical;flex-direction:column;margin-top: 0.01rem;padding-bottom: 0.2rem;}
+.star-section .content{display: flex;justify-content:center;}
+.star-section .contents{display: flex;justify-content: center;width:7.2rem;flex-wrap: wrap;position: relative;}
+.star-section .contents .timg-img{width: 4rem;height: 4rem;position: absolute;margin-top: -0.8rem;}
+.star-section .contents .content1-div{display:flex;justify-content:center;width: 6.66rem;height: 9rem;margin-top:1.5rem;border-radius: 0.1rem;}
+.star-section .contents .content1-div .content1-div-div{display:flex;justify-content:center;align-self:center;flex-wrap:wrap;width: 6.46rem;height: 8rem;padding-top:0.8rem;}
+.star-section .contents .content1-div .content1-div-div .con1-center{line-height: 0.3rem;}
+.star-section .contents .content1-div .content1-div-div pre{width: 90%;white-space: pre-wrap;word-wrap: break-word;}
+.star-section .contents .star-line-div{width: 100%;height: 0.34rem;margin: 0.3rem 0 0.3rem 0;}
+.star-section .contents .star-line-img{width: 7.2rem;height: 0.34rem;}
+.star-section .contents .content2-div{display:flex;justify-content:center;width: 6.54rem;height: 6.4rem;box-shadow: darkgrey 1px 1px 5px 1px;}
+.star-section .contents .content2-div .content2-div-div{width: 5.48rem;height: 6.15rem;}
+.star-section .contents .content2-div-div .content2-title{width: 5.48rem;height: 1.05rem;border-bottom: dashed 1px #4fa92c;text-align: center;line-height: 1.05rem;}
+.star-section .contents .content2-div-div .content2-con{width: 5.4rem; height: 4.54rem;margin-top:0.5rem;margin-left: 0.08rem;}
+.star-section .contents .content2-div-div .content2-con-line{display:flex;justify-content:flex-start;width: 100%;}
+.star-section .contents .content2-div-div .content2-con .line-icon{width: 0.3rem; height: 0.3rem;border-radius: 50%;z-index: 2;}
+.star-section .contents .content2-div-div .content2-con span{width:5rem;margin-left: 0.3rem;}
+.star-section .contents .content2-div-div .content2-con .content-y-line{width:0.02rem;height: 4.5rem;border-left:solid 2px #d4d4d4;position: absolute;left: 1.06rem;}
+.star-section .contents .content3-div{display:flex;justify-content:center;flex-wrap:wrap;width: 6.54rem;margin-top:0.3rem;}
+.star-section .contents .content3-div .content3-head{width: 6.46rem;height: 1.82rem;position: relative;}
+.star-section .contents .content3-div .content3-head-img{width: 6.46rem;height: 1.82rem;position: absolute;}
+.star-section .contents .content3-div .content3-head-title{width: 6.46rem;height: 1.82rem;line-height: 1.82rem;position: absolute;text-align: center;font-weight: bold;}
+.star-section .contents .content3-div .content3-content-div{width: 6rem;height: 5rem;border: dashed 2px #e59458;border-radius: 0.2rem;padding: 0.4rem;}
+.star-section .contents .content3-div .content3-content-div pre{width: 100%;white-space: pre-wrap;word-wrap: break-word;}
+.star-section .contents .content4-div{display:flex;justify-content:center;flex-wrap:wrap;width: 6.5rem;margin-top:0.3rem;position: relative;}
+.star-section .contents .content4-div .content4-head{display:flex;justify-content:center;width: 100%;height: 1.48rem;position: absolute;}
+.star-section .contents .content4-div .content4-head-fish{width: 2.2rem;height: 2.5rem;position: absolute;right: 0;}
+.star-section .contents .content4-div .content4-fish-img{width: 2.2rem;height: 2.5rem;}
+.star-section .contents .content4-div .content4-head .content4-head-title{width: 1.04rem;height: 1.08rem;padding: 0.1rem;text-align: center;border: solid 4px #d4d4d4;border-radius: 0.1rem;}
+.star-section .contents .content4-div .content4-content{width: 5.5rem;height: 2.6rem;padding: 0.5rem;box-shadow: darkgrey 1px 1px 5px 1px;margin-top: 1rem;}
+.star-section .contents .content4-div .content4-content-line{line-height: 0.7rem;}
+.star-section .contents .content5-div{display:flex;justify-content:center;flex-wrap:wrap;width: 6.7rem;margin-top:0.5rem;position: relative;}
+.star-section .contents .content5-div .content5-head{width: 6.68rem;height: 0.74rem;position: absolute;}
+.star-section .contents .content5-div .content5-head-img{width: 6.68rem;height: 0.74rem;}
+.star-section .contents .content5-div .content5-head-title{width: 6.68rem;height: 0.74rem;line-height: 0.74rem;text-align: center;position: absolute;}
+.star-section .contents .content5-div .content5-content{width: 6rem;padding: 0.8rem 0.2rem 0.5rem 0.2rem;border: dashed 2px #94cac8;border-radius: 0.1rem;}
+.star-section .contents .content5-div .team-photo{display:flex;justify-content:center;width: 100%;}
+.star-section .contents .content5-div .team-photo img{width: 3.85rem;height: 4.56rem;margin-top: 0.2rem;}
+.star-section .contents .content5-div .team-photo-con{margin-top: 0.2rem;}
+.star-section .contents .content5-div .team-photo-line{width: 5.8rem;height: 0.01rem;border-bottom: dashed 1px #93c177;margin-top:0.5rem;}
+.star-section .contents .content6-div{display:flex;justify-content:center;flex-wrap:wrap;width: 6.4rem;height: 2.2rem;}
+.star-section .contents .content6-div .content6-head{display:flex;align-self:center;justify-content:center;width: 6rem;height: 0.85rem;line-height:0.85rem;border-radius: 0.5rem;}
+.star-section .contents .content7-div{display:flex;justify-content:center;flex-wrap:wrap;width: 6.6rem;}
+.star-section .contents .content7-div img{width: 6.6rem;height: 6.4rem;display: block;margin-bottom: 0.5rem;}
+.star-section .contents .content8-div{display:flex;justify-content:center;flex-wrap:wrap;width: 6rem;height: 5.6rem;border: solid 2px #d4d4d4;margin: 0.5rem 0 0.5rem 0;}
+.star-section .contents .content8-div .content8-head{width: 4.3rem;height: 1rem;line-height: 1rem;border-bottom: dashed 1px #d4d4d4;text-align: center;}
+.star-section .contents .content8-div .content8-tip{width: 3rem;height: 0.54rem;line-height: 0.54rem;text-align: center;}
+.star-section .contents .content8-div .content8-code{width: 3.08rem;height: 3.08rem;}
+.star-section .contents .content8-div .content8-code img{width: 3.08rem;height: 3.08rem;}
+
+/*人气奖项*/
+.prize-section{display: flex;width: 100%;justify-content:center;box-orient:vertical;flex-direction:column;margin-top:0.18rem;padding-bottom:1rem;position: relative;}
+.prize-section .prize-page-img{width:100%;display:flex;justify-content:center;height: 64rem;}
+.prize-section .prize-page-img img{width:7.18rem;height: 56.76rem;display: block;}
+.prize-section .rule-title{display: flex;justify-content: center;width: 100%;height: 1.68rem;}
+.prize-section .rule-title-con{display: flex;justify-content:flex-start;width: 4rem;height: 1.3rem;}
+.prize-section .rule-title-img{width: 4rem;height: 1.3rem;position: absolute;margin-top:0.2rem;}
+.prize-section .rule-title-word{width: 4rem;height: 1.3rem;line-height:1.3rem;position: absolute;margin-top:0.2rem;text-align: center;}
+.prize-section .rule-desc{width: 76%;line-height:0.4rem;padding:0.4rem;margin:0rem auto;border:solid 2px #dd704c;border-radius: 5px;box-shadow: darkgrey 1px 1px 5px 1px;}
+.prize-section .rule-desc pre{width: 100%;white-space: pre-wrap;word-wrap: break-word;}
+.prize-section .rule-bg{width: 100%;height: 1.8rem;margin-top: 0.5rem;}
+.prize-section .rule-bg-img{width: 100%;height: 1.8rem;}
+.prize-section .prize-tree{display:flex;justify-content:center;width: 100%;height: 3.88rem;}
+.prize-section .prize-tree img{width: 4rem;height: 3.88rem;display: block;}
+.prize-section .prize-fish{display:flex;justify-content:center;width: 100%;height: 4rem;}
+.prize-section .prize-fish img{width: 4rem;height: 4rem;display: block;}
+
+/*参赛选手列表样式*/
+.attend-list-section{display: flex;width: 100%;box-orient:vertical;flex-direction:column;padding-bottom:0.5rem;}
+.attend-list-section .attend-list{display:flex;width:94%;padding:0 3% 0 3%;justify-content:space-between;flex-wrap:wrap;}
+.attend-list-section .attend-item{display:flex;justify-content:flex-start;flex-wrap:wrap;padding:0.15rem;width: 3.08rem; height: 4.48rem;margin-top:0.3rem;border-radius: 5px;background: #ffffff;}
+.attend-list-section .attend-item .item-div{width: 3.08rem; height: 3.08rem;overflow: hidden;}
+.attend-list-section .attend-item .item-img{width: 3.08rem; height: 3.08rem;display: block;}
+.attend-list-section .attend-item .item-info{display:flex; justify-content:space-between; width: 3.08rem; height: 0.44rem;}
+.attend-list-section .attend-item .item-info-l{width: 50%;height: 0.48rem;overflow: hidden;line-height: 0.44rem; }
+.attend-list-section .attend-item .item-info-r{width: 50%;height: 0.48rem;overflow: hidden;line-height: 0.44rem;text-align: right;}
+.attend-list-section .attend-item .item-btn{width: 3.08rem;height: 0.56rem;overflow: hidden;line-height: 0.56rem;text-align: center;}
+.attend-list-section .attend-item .item-vote-btn{width: 3.04rem;height: 0.52rem;overflow: hidden;line-height: 0.52rem;text-align: center;display: block;border-radius: 5px;border: solid 1px #45b6fe;background: #45b6fe;}
+.attend-list-section .attend-list-loading{width: 100%;height: 0.5rem;line-height: 0.5rem;text-align: center;margin-top: 0.4rem}
+.attend-list-section .attend-list-none{width: 100%;height: 0.5rem;line-height: 0.5rem;text-align: center;margin-top: 0.4rem}
+
+/*参赛选手人气排行样式*/
+.attend-order-section{display: flex;width: 100%;box-orient:vertical;flex-direction:column;margin-top:0.18rem;padding-bottom:0.5rem;}
+.attend-order-section .attend-order{width: 100%;}
+.attend-order-section .attend-order-first{display: flex;justify-content:space-around;width: 100%; height: 3.6rem;border-bottom: solid 1px #d4d4d4;}
+.attend-order-section .attend-order-first .first-line{width: 2.2rem; height: 3.3rem;position: relative;text-align: center;}
+.attend-order-section .attend-order-first .order-bg{width: 1.76rem; height: 2.3rem;margin-left:0.22rem;}
+.attend-order-section .attend-order-first .order-img-bg{width: 1.76rem; height: 2.3rem;display: block;position: absolute;}
+.attend-order-section .attend-order-first .order-head{width: 1.3rem; height: 1.3rem;display: block;z-index:2;margin-top:0.85rem;margin-left:0.22rem;position: absolute;border-radius: 1rem;}
+.attend-order-section .attend-order-first .order-name{width: 100%;height:0.4rem;line-height: 0.4rem;overflow: hidden;}
+.attend-order-section .attend-order-first .order-hot{width: 100%;height:0.4rem;line-height: 0.4rem;overflow: hidden;}
+.attend-order-section .attend-order-other{display: flex;justify-content:flex-start;width: 100%;flex-wrap: wrap;}
+.attend-order-section .attend-order-other-line{display: flex;justify-content:space-around;width: 100%; height: 1.22rem;border-bottom: solid 1px #d4d4d4;}
+.attend-order-section .attend-order-other-line .head{display: flex;justify-content:center;width: 20%;height: 100%;}
+.attend-order-section .attend-order-other-line .order-head{display: flex;align-self:center;width: 0.75rem; height: 0.75rem;border-radius: 1rem;}
+.attend-order-section .attend-order-other-line .num{display: flex;width: 10%;}
+.attend-order-section .attend-order-other-line .name{display: flex;width: 40%;}
+.attend-order-section .attend-order-other-line .hot{display: flex;width: 30%;}
+.attend-order-section .attend-order-other-line span{display: flex;align-self:center;justify-content:center;width:100%;text-align: center;}
+.attend-order-section .attend-order-loading{width: 100%;height: 0.5rem;line-height: 0.5rem;text-align: center;margin-top: 0.4rem}
+.attend-order-section .attend-order-none{width: 100%;height: 0.5rem;line-height: 0.5rem;text-align: center;margin-top: 0.4rem}
+
+/*参赛选手详情*/
+.attend-info-section{display: flex;width: 100%;box-orient:vertical;flex-direction:column;}
+.attend-info-section .info-head{display: flex;justify-content: center;width: 100%;height: 0.9rem;}
+.attend-info-section .info-head .info-item1{display:flex;align-self:center;justify-content: center;width: 20%;height: 0.4rem;overflow: hidden;padding-left: 5%;}
+.attend-info-section .info-head .info-item2{display:flex;align-self:center;justify-content: center;width: 40%;height: 0.4rem;overflow: hidden;border-left: solid 1px #d4d4d4;border-right: solid 1px #d4d4d4;}
+.attend-info-section .info-head .info-item-icon{display:flex;align-self:center;width: 0.36rem;height: 0.36rem;display: block;}
+.attend-info-section .info-head span{width: 2rem;height: 0.4rem;line-height: 0.4rem;text-align: center;}
+.attend-info-section .info-content{display: flex;flex-wrap:wrap;justify-content:center;width: 80%;padding:10%;}
+.attend-info-section .info-content-con{display: flex;flex-wrap:wrap;justify-content:center;width: 6.38rem;}
+.attend-info-section .content-photo{width: 6.38rem;height: 6.9rem;overflow: hidden;}
+.attend-info-section .content-photo-img{width: 6.38rem;height: 6.9rem;}
+.attend-info-section .content-desc-head{width: 6.1rem;height: 0.9rem;margin-top: 0.65rem;}
+.attend-info-section .content-desc-head-img{width: 6.1rem;height: 0.9rem;}
+.attend-info-section .content-desc{width: 5.7rem;padding:0.2rem;box-shadow: darkgrey 1px 1px 5px 1px;}
+.attend-info-section .content-desc pre{width: 100%;white-space: pre-wrap;word-wrap: break-word;}
+.attend-info-section .content-btn-div{display: flex;justify-content: center;width: 100%;height: 1.7rem;}
+.attend-info-section .content-btn-div .content-btn{display:flex;align-self:center;justify-content:center;width: 5.3rem;height: 0.88rem;line-height: 0.88rem;}
+
+/*助力规则样式*/
+.attend-rule-section{display: flex;width: 100%;min-height:10.4rem;box-orient:vertical;flex-direction:column;margin-top:0.18rem;position: relative;}
+.attend-rule-section .rule-title{display: flex;justify-content: center;width: 100%;height: 1.68rem;}
+.attend-rule-section .rule-title-con{display: flex;justify-content:flex-start;width: 4rem;height: 1.3rem;}
+.attend-rule-section .rule-title-img{width: 4rem;height: 1.3rem;position: absolute;margin-top:0.2rem;}
+.attend-rule-section .rule-title-word{width: 4rem;height: 1.3rem;line-height:1.3rem;position: absolute;margin-top:0.2rem;text-align: center;}
+.attend-rule-section .rule-desc{width: 76%;height: 6.4rem;line-height:0.4rem;padding:0.4rem;margin:0rem auto;border:solid 2px #dd704c;border-radius: 5px;box-shadow: darkgrey 1px 1px 5px 1px;}
+.attend-rule-section .rule-desc pre{width: 100%;white-space: pre-wrap;word-wrap: break-word;}
+.attend-rule-section .rule-bg{width: 100%;height: 1.8rem;margin-top: 0.5rem;}
+.attend-rule-section .rule-bg-img{width: 100%;height: 1.8rem;}
+
+/*赠送礼物弹层*/
+.gift-section{display: flex;box-orient:vertical;flex-direction:column;width: 90%;height: 9.5rem;z-index: 9100;position: fixed;left:5%;top:10%;}
+.gift-section .gift-layer{display: flex;justify-content: center;flex-wrap:wrap;width:100%;background:rgba(0,0,0,0.6);padding-top: 0.5rem;}
+.gift-section .gift-list{display: flex;justify-content: flex-start;flex-wrap: wrap;width: 90%;height: 7rem;overflow-y: scroll;}
+.gift-section .gift-list-line{display: flex;justify-content: space-around;width:100%;height: 1.36rem;border-bottom: solid 2px #565656;text-align: center;}
+.gift-section .gift-icon{width: 30%;height: 1.36rem;position: relative;}
+.gift-section .gift-icon-img{width: 1rem;height: 1.36rem;position: absolute;left: 5%;}
+.gift-section .gift-pay{width: 0.8rem;height: 0.4rem;position: absolute;left: 35%;top:55%;border-radius: 0.1rem;}
+.gift-section .gift-name{display: flex;width: 15%;height: 1.36rem;overflow: hidden;}
+.gift-section .gift-hot{display: flex;width: 35%;height: 1.36rem;}
+.gift-section .gift-list-line .span1{display: flex;align-self: center;width: 100%;height: 0.4rem;}
+.gift-section .gift-list-line .span2{display: flex;align-self: center;width: 100%;height: 0.3rem;}
+.gift-section .gift-check{display: flex;align-self: center;width: 20%;height: 1.36rem;}
+.gift-section label.gift-radios-label input[type="radio"]{position: absolute;  opacity: 0;  visibility: hidden;}
+.gift-section label.gift-radios-label .gift-radios{display: inline-block;position: relative;width: 0.5rem;height: 0.5rem;border: 2px solid #e8e8e8;border-radius: 50%;left: 50%}
+.gift-section label.gift-radios-label input[type="radio"]:checked + .gift-radios:after{position: absolute;content: "";width: 0.4rem;height: 0.4rem;background-color: #fff;border-radius: 50%;top: 10%;left: 10%;}
+.gift-section label.gift-radios-label input[type="radio"]:checked + .gift-radios{background-color: #00B066;border:1px solid #00B066;}
+.gift-section label.gift-radios-label input[type="radio"]:disabled + .gift-radios{background-color: #e8e8e8;border:1px solid #979797;}
+.gift-section label.gift-radios-label input[type="radio"]:disabled:checked + .gift-radios:after{background-color: #c1c1c1;}
+.gift-section label.gift-radios-label.gift-radios-anim .gift-radios{-webkit-transition:background-color ease-out .5s;transition:background-color ease-out .5s;}
+.gift-section .gift-send{display: flex;justify-content: center;width: 100%;height: 2.1rem}
+.gift-section .gift-send-btn{display: flex;align-self: center;justify-content: center; width: 5.3rem;height: 0.9rem;line-height: 0.9rem;}
+
+/*关注二维码样式*/
+.sub-code-section{display: flex;justify-content:center;box-orient:vertical;flex-direction:column;width: 100%;height: 50%;z-index: 9100;position: absolute;}
+.sub-code-section .sub-code-div{display:flex;justify-content:center;width:100%;height: 100%;}
+.sub-code-section .border-code-div{display:flex;justify-content:center;align-self:center;flex-wrap:wrap;width:95%;height: 95%;border: solid 8px #dd704c;}
+.sub-code-section .code-word{display: flex;justify-content:center; align-self:center;width: 100%;height:20%; line-height: 1.4rem;}
+.sub-code-section .code-word-img{display: flex;justify-content:center; align-self:center; width:100%;height: 80%;}
+.sub-code-section .sub-code-div img{display:flex;align-self:center;width:3rem;height: 3rem;}
+.sub-code-show{animation: 0.2s sub-code-show2 0s infinite ;-webkit-animation: 0.2s sub-code-show 0s infinite;-moz-animation: 0.2s sub-code-show 0s infinite;animation-iteration-count:1;-webkit-animation-iteration-count:1;-moz-animation-iteration-count:1;animation-fill-mode: forwards;}
+@keyframes sub-code-show{
+    0%{bottom:-40%;}
+    25%{bottom:-30%;}
+    50%{bottom:-20%;}
+    75%{bottom:-10%;}
+    100%{bottom:0%;}
+}
+@-webkit-keyframes sub-code-show{
+    0%{bottom:-40%;}
+    25%{bottom:-30%;}
+    50%{bottom:-20%;}
+    75%{bottom:-10%;}
+    100%{bottom:0%;}
+}
+@-moz-keyframes sub-code-show{
+    0%{bottom:-40%;}
+    25%{bottom:-30%;}
+    50%{bottom:-20%;}
+    75%{bottom:-10%;}
+    100%{bottom:0%;}
+}

@@ -1,0 +1,108 @@
+{extend name="base/main" /}
+{block name="main"}
+<div class="layui-main">
+    <div class="layui-word-aux" style="margin: 20px;text-align: center;font-size: larger;">选手管理</div>
+    <div class="layui-row" style="margin-top: 20px;">
+        <div class="layui-col-xs9" id="product_search">
+            搜索：
+            <div class="layui-inline">
+                <input class="layui-input" name="id" id="demoReload" autocomplete="off">
+            </div>
+            <button class="layui-btn" data-type="reload">搜索</button>
+        </div>
+        <div class="layui-col-xs3">
+            <a href="/admin/contestant/add">
+                <button class="layui-btn" id="addBtn" lay-filter="newsadd">添加选手</button>
+            </a>
+        </div>
+    </div>
+    <div class="layui-row">
+        <table id="contestantlist" lay-filter="test"></table>
+    </div>
+
+</div>
+<script type="text/html" id="buttonTpl">
+    <!--<a class="layui-btn layui-btn-xs layui-btn-primary" lay-event="event_preview">详情</a>-->
+    <a class="layui-btn layui-btn-xs layui-btn-normal" lay-event="event_edit">编辑</a>
+    <a class="layui-btn layui-btn-xs" lay-event="event_delete">删除</a>
+</script>
+{/block}
+{block name="javascript"}
+<script>
+    layui.use (['table', 'jquery'], function () {
+        var table = layui.table;
+        //第一个实例
+        table.render ({
+            elem : '#contestantlist'
+            , height : 500
+            , url : '/admin/contestant/contestant_list/' //数据接口
+            , page : true //开启分页
+            , cols : [[ //表头
+                {field : 'id', title : 'ID', width : 70, sort : true, fixed : 'left'}
+                , {field : 'name', title : '名称', width : 100}
+                , {field : 'id', title : '编号', width : 60}
+                , {field : 'pic', title : '照片', width : 80}
+                , {field : 'desc', title : '简介'}
+                , {field : 'create_time', title : '添加时间', width : 100, sort : true}
+                , {
+                    title : '操作',
+                    fixed : 'right',
+                    align : 'center',
+                    width : 160,
+                    toolbar : '#buttonTpl',
+                    event : 'oprater'
+                }
+            ]]
+            , id : 'testReload'
+        });
+        var $ = layui.$, active = {
+            reload : function () {
+                var demoReload = $ ('#demoReload');
+                table.reload ('testReload', {
+                    where : {
+                        keyword : demoReload.val ()
+                    }
+                });
+            }
+        };
+        $ ('#product_search .layui-btn').on ('click', function () {
+            var type = $ (this).data ('type');
+            active[type] ? active[type].call (this) : '';
+        });
+        table.on ('tool(test)', function (obj) {
+            var data = obj.data;
+            if (obj.event === 'event_preview') {
+                //                layer.msg('ID：'+ data.id + ' 的查看操作，这里应跳转到前台详情页');
+                //新窗口打开前台详情页面
+                //window.open('/index/index/product?id=' + data.id,'product_preview');
+            } else if (obj.event === 'event_delete') {
+                layer.confirm ('真的删除该记录吗？', function (index) {
+                    obj.del ();
+                    //请求服务端，执行删除
+                    $.ajax ({
+                        url : '/admin/contestant/delete',
+                        data : 'id=' + data.id,
+                        type : 'post',
+                        dataType : 'json',
+                        success : function (res) {
+                            if (res.code == 0) {
+                                layer.msg ('成功');
+                                //table.reload('testReload');
+                                layer.close (window_index);
+                            }
+                        },
+                        error : function (res) {
+                            layer.msg ('删除失败');
+                        }
+                    });
+                    layer.close (index);
+                });
+            } else if (obj.event === 'event_edit') {
+                //layer.alert('编辑行：<br>'+ JSON.stringify(data))
+                //跳转到编辑页面
+                window.location.href = '/admin/contestant/edit?id=' + data.id;
+            }
+        });
+    });
+</script>
+{/block}

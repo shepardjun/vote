@@ -1,0 +1,59 @@
+p {margin-top: 0;margin-bottom: 1rem;}
+body{color:#2a333c;}
+/*边距*/
+.padding0{padding:0;}
+.paddingt12{padding-top:12px;}
+.paddingt22{padding-top:22px;}
+.paddingl12{padding-left:12px;}
+.margint14{margin-top:14px;}
+.margintop0{margin-top:0 !important}
+.paddingtop0{padding-top:0 !important;}
+.ml_40{margin-left:40px}
+.ml_20{margin-left:20px;}
+.layui-bg-green{background:#0abbb9 !important}
+
+/*颜色*/
+.text-color-green{color:#0abbb9}
+.text-color-gray{color:#B1B1B1;}
+.text-color5{color:#555;}
+.text-color-light-white{color:rgba(255,255,255, 0.6);}
+.text-color-yellow{color:#ff9601;}
+
+/*对齐方式*/
+.alignr{text-align: right;}
+.alignc{text-align: center;}
+.alignl{text-align: left;}
+/*对齐*/
+.fl{float:left;}
+.fr{float:right;}
+
+.layui-carousel-arrow{ width: 50px; height: 100px;background: #0abbb9;}
+.layui-carousel-arrow:hover{background: #0abbb9;}
+.layui-carousel:hover .layui-carousel-arrow[lay-type="sub"]{left:0;}
+
+@media screen and (min-width: 993px){
+	.layui-nav .layui-nav-item{margin-left:20px;}		
+	.fixed-empty{padding-top:176px;}
+}
+
+@media screen and (min-width: 768px){
+	.fixed-empty{padding-top:160px;}
+	.banner{height:200px;}
+	
+}
+/*笔记本以上*/
+@media screen and (min-width: 993px){
+	.banner{height:319px;}
+}
+/*手机显示*/
+@media screen and (max-width: 767px){
+	.layui-hide-xsd{display: none!important;}
+	.fixed-empty{padding-top:103px;}
+	.layui-nav{padding:0; margin:0 -15px;}
+	.layui-nav li{display:block !important;}
+	.layui-nav-child{position:relative;top:0 !important;}
+	.layui-nav .layui-nav-mored{top:20%;}
+	.layui-show-xs-blockd{display:block;}
+	.banner{height:98px;}
+}
+
